@@ -3,6 +3,8 @@ import { jwtDecode } from "jwt-decode";
 function User() {
 	const user = localStorage.getItem("token");
 
+	console.log("user", user, localStorage);
+
 	const decodedToken = jwtDecode<{ name: string }>(user as string);
 
 	const username = decodedToken?.name || "%username%";

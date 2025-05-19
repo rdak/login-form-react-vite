@@ -7,6 +7,7 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import Logout from "./pages/Logout";
 import LogoutMock from "./pages/LogoutMock";
 import { useEffect, useState } from "react";
+import NotFound from "./pages/NotFound";
 
 const titles: Record<string, string> = {
 	"/": "Home",
@@ -50,6 +51,7 @@ function AppRouter() {
 						</ProtectedRoute>
 					}
 				/>
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</>
 	);

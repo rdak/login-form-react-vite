@@ -6,7 +6,7 @@ function Footer() {
 			<div className="container">
 				<div className="footer">
 					<div className="footer__logo">
-						<Link to="/">Logo header</Link>
+						<Link to="/">Logo footer</Link>
 					</div>
 				</div>
 			</div>
