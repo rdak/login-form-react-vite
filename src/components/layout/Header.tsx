@@ -1,5 +1,6 @@
-import React, { useCallback, useMemo, useState } from "react";
-import { NavLink, useLocation } from "react-router";
+import { useCallback, useMemo, useState } from "react";
+import { NavLink } from "react-router";
+import HeaderMenuLink from "./HeaderMenuItem";
 
 function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +13,6 @@ function Header() {
 		setIsMenuOpen(false);
 	}, []);
 
-	const location = useLocation();
-
 	const menuList = useMemo(() => {
 		const user = localStorage.getItem("token");
 		/**
@@ -22,7 +21,7 @@ function Header() {
 		 * because Header wasn't re-rendered
 		 *
 		 * We need to listen to the localStorage(we can't use it actually)
-		 * or add a context provider for it
+		 * or add a context provider for it - would be better
 		 */
 		const menuList = [
 			{
@@ -54,7 +53,7 @@ function Header() {
 		}
 
 		return menuList;
-	}, [location]);
+	}, []);
 
 	return (
 		<header>
@@ -99,33 +98,5 @@ function Header() {
 		</header>
 	);
 }
-
-interface IHeaderMenuLinkProps {
-	label: string;
-	url: string;
-	onClick: () => void;
-}
-
-const HeaderMenuLink: React.FC<IHeaderMenuLinkProps> = ({
-	label,
-	url,
-	onClick,
-}) => {
-	return (
-		<li>
-			<NavLink
-				className={({ isActive }) =>
-					isActive
-						? "header-menu__link header-menu__link--active"
-						: "header-menu__link"
-				}
-				to={url}
-				onClick={onClick}
-			>
-				{label}
-			</NavLink>
-		</li>
-	);
-};
 
 export default Header;

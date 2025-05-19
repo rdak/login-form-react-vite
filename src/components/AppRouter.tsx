@@ -22,7 +22,6 @@ function AppRouter() {
 	const [currentPage, setCurrentPage] = useState<string>();
 
 	useEffect(() => {
-		console.log("location", location, location.pathname);
 		document.title = `${titles[location.pathname]} page`;
 		setCurrentPage(`${titles[location.pathname]} page was loaded`);
 		setTimeout(() => {
