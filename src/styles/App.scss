@@ -149,4 +149,18 @@ h1 {
 		line-height: 20px;
 		padding: 5px 0;
 	}
+
+	&__error {
+		color: red;
+		font-size: 14px;
+		line-height: 20px;
+		margin: 15px 0;
+	}
+}
+
+.error {
+	color: red;
+	font-size: 14px;
+	line-height: 20px;
+	margin: 5px 0;
 }

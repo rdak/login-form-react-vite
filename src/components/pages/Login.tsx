@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 const TOKEN =
@@ -12,6 +12,11 @@ function Login() {
 		navigate("/user");
 	}
 
+	const [error, setError] = useState({
+		summary: "",
+		username: "",
+		password: "",
+	});
 	const [isLoading, setIsLoading] = useState(false);
 	const [isPassowrdVisible, setIsPasswordVisible] = useState(false);
 
@@ -26,38 +31,88 @@ function Login() {
 	const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
-		setIsLoading(true);
-		fetch("/")
-			.then(() => {
-				return true;
-			})
-			.then(() => {
-				if (formData.get("username") === "fail") {
-					console.log("Login failed");
+		let isValid = true;
+		if (formData.get("username") === "") {
+			setError((prevState) => ({
+				...prevState,
+				username: "Username is required",
+				summary: "One or more fields are invalid",
+			}));
+			isValid = false;
+		}
+
+		if (formData.get("password") === "") {
+			setError((prevState) => ({
+				...prevState,
+				password: "Password is required",
+				summary: "One or more fields are invalid",
+			}));
+			isValid = false;
+		}
+
+		if (isValid) {
+			setIsLoading(true);
+			fetch("/")
+				.then(() => {
+					return true;
+				})
+				.then(() => {
+					if (formData.get("username") === "fail") {
+						console.log("Login failed");
+						setIsLoading(false);
+						setError((prevState) => ({
+							...prevState,
+							summary: "Login failed - invalid credentials",
+						}));
+					} else {
+						console.log("Login successful");
+						setTimeout(() => {
+							localStorage.setItem("token", "Bearer " + TOKEN);
+							navigate("/user");
+						}, 500);
+					}
+				})
+				.catch((error) => {
+					console.error("Error:", error);
 					setIsLoading(false);
-				} else {
-					console.log("Login successful");
-					setTimeout(() => {
-						localStorage.setItem("token", "Bearer " + TOKEN);
-						navigate("/user");
-					}, 500);
-				}
-			})
-			.catch((error) => {
-				console.error("Error:", error);
-				setIsLoading(false);
-			});
+					setError((prevState) => ({
+						...prevState,
+						summary: "Login failed - server error",
+					}));
+				});
+		}
 	}, []);
+
+	const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		const target = e.target;
+		console.log("target", target);
+		setError((prevState) => ({
+			...prevState,
+			[target.id]: "",
+		}));
+	}, []);
+
+	useEffect(() => {
+		if (!error.password && !error.username) {
+			setError((prevState) => ({
+				...prevState,
+				summary: "",
+			}));
+		}
+	}, [error.password, error.username]);
 
 	return (
 		<>
 			<h1>Log in</h1>
 			<form className="form" action="" onSubmit={onSubmit}>
 				<div className="form__row">
-					<p className="error" id="error_username"></p>
 					<label htmlFor="username" className="form__label">
-						Email
+						Username
 					</label>
+					<span className="error" id="error_username">
+						{error.username}
+					</span>
+
 					<input
 						className="field"
 						type="text"
@@ -65,34 +120,34 @@ function Login() {
 						name="username"
 						autoComplete="username"
 						autoFocus
-						aria-invalid="false"
+						aria-invalid={error.username ? "true" : "false"}
 						aria-describedby="error_username"
+						onChange={onChange}
 					/>
 				</div>
 				<div className="form__row password-field">
-					<p className="error" id="error_password"></p>
-
-					<p
-						aria-live="polite"
-						id="password-text"
-						className="sr-only"
-					>
-						{isPassowrdVisible
-							? "Password shown"
-							: "Password hidden"}
-					</p>
 					<label htmlFor="password" className="form__label">
 						Password
 					</label>
+
+					<span className="error" id="error_password">
+						{error.password}
+					</span>
+
 					<div className="password-field__input">
 						<button
 							className="password-field__toggle-button"
 							type="button"
-							role="switch"
-							aria-pressed="false"
 							onClick={onTogglePasswordClick}
+							aria-label={
+								isPassowrdVisible
+									? "Password shown"
+									: "Password hidden"
+							}
 						>
-							{isPassowrdVisible ? "Hide" : "Show"}
+							<span aria-hidden="true">
+								{isPassowrdVisible ? "Hide" : "Show"}
+							</span>
 						</button>
 						<input
 							className="field"
@@ -100,20 +155,23 @@ function Login() {
 							id="password"
 							name="password"
 							autoComplete="current-password"
-							aria-pressed={isPassowrdVisible}
-							aria-invalid="false"
-							aria-describedby="error_password"
+							aria-invalid={error.password ? "true" : "false"}
+							aria-describedby="error_password password-text"
+							onChange={onChange}
 						/>
 					</div>
 				</div>
-				<label className="form__row">
+				<div className="form__row">
+					<p className="form__error" aria-live="assertive">
+						{error.summary}
+					</p>
 					<input
 						aria-busy={isLoading}
 						className="submit-button"
 						type="submit"
 						value={isLoading ? "Processing" : "Login"}
 					/>
-				</label>
+				</div>
 			</form>
 		</>
 	);
