@@ -8,6 +8,10 @@ function Header() {
 		setIsMenuOpen((prevState) => !prevState);
 	}, []);
 
+	const onMenuItemClick = useCallback(() => {
+		setIsMenuOpen(false);
+	}, []);
+
 	const location = useLocation();
 
 	const menuList = useMemo(() => {
@@ -83,6 +87,7 @@ function Header() {
 											key={label}
 											label={label}
 											url={url}
+											onClick={onMenuItemClick}
 										/>
 									);
 								})}
@@ -98,9 +103,14 @@ function Header() {
 interface IHeaderMenuLinkProps {
 	label: string;
 	url: string;
+	onClick: () => void;
 }
 
-const HeaderMenuLink: React.FC<IHeaderMenuLinkProps> = ({ label, url }) => {
+const HeaderMenuLink: React.FC<IHeaderMenuLinkProps> = ({
+	label,
+	url,
+	onClick,
+}) => {
 	return (
 		<li>
 			<NavLink
@@ -110,6 +120,7 @@ const HeaderMenuLink: React.FC<IHeaderMenuLinkProps> = ({ label, url }) => {
 						: "header-menu__link"
 				}
 				to={url}
+				onClick={onClick}
 			>
 				{label}
 			</NavLink>
