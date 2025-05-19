@@ -1,0 +1,94 @@
+@use "../variables";
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	position: relative;
+	z-index: 1;
+	&__logo a {
+		text-decoration: none;
+		color: white;
+		font-size: 1.5em;
+		font-weight: bold;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.skip-link {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	width: auto;
+	height: auto;
+	background-color: #333;
+	color: white;
+	padding: 10px;
+	&:focus {
+		top: 4px;
+		left: 4px;
+		z-index: 1000;
+	}
+}
+
+.header-menu {
+	&__toggle {
+		background: none;
+		border: none;
+		color: white;
+		cursor: pointer;
+		display: block;
+	}
+
+	&__list {
+		display: none;
+		flex-direction: column;
+		background-color: #333;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		width: 100%;
+		list-style: none;
+		margin: 15px 0 0 0;
+		padding: 10px;
+	}
+
+	&__list a {
+		color: white;
+		text-decoration: none;
+		padding: 5px 10px;
+		display: block;
+		&.active {
+			color: #333;
+			border-bottom: 1px solid #333;
+		}
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__list--open {
+		display: flex;
+	}
+
+	@media (min-width: variables.$screen-sm) {
+		&__toggle {
+			display: none;
+		}
+
+		&__list {
+			display: flex;
+			flex-direction: row;
+			position: static;
+			background: transparent;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}

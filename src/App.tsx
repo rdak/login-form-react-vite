@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.scss";
 import { BrowserRouter } from "react-router";
 import AppRouter from "./components/AppRouter";
 import Header from "./components/layout/Header";
@@ -7,15 +7,13 @@ import Body from "./components/layout/Body";
 
 function App() {
 	return (
-		<>
+		<BrowserRouter>
 			<Header />
 			<Body>
-				<BrowserRouter>
-					<AppRouter />
-				</BrowserRouter>
+				<AppRouter />
 			</Body>
 			<Footer />
-		</>
+		</BrowserRouter>
 	);
 }
 

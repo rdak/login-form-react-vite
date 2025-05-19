@@ -1,0 +1,152 @@
+@use "./reset.css";
+@use "./variables";
+@use "./layout/header";
+@use "./layout/footer";
+@use "./layout/body";
+
+* {
+	box-sizing: border-box;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+
+header,
+footer {
+	padding: 15px;
+	background: #5cc7e4;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 15px;
+
+	@media (min-width: variables.$screen-sm) {
+		width: variables.$container-sm;
+	}
+	@media (min-width: variables.$screen-md) {
+		width: variables.$container-md;
+	}
+	@media (min-width: variables.$screen-lg) {
+		width: variables.$container-lg;
+	}
+}
+
+@keyframes logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	a:nth-of-type(2) .logo {
+		animation: logo-spin infinite 20s linear;
+	}
+}
+
+.card {
+	padding: 2em;
+}
+
+.comment {
+	color: #888;
+	margin-bottom: 15px;
+}
+
+a:focus,
+button:focus,
+input:focus {
+	outline: 2px solid orange;
+	outline-offset: 2px;
+}
+
+.field-wrapper {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+}
+
+.submit-button {
+	background-color: #5c6ae4;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 150px;
+	&:hover {
+		background-color: #171a39;
+	}
+	&:focus {
+	}
+}
+
+.sr-only {
+	border: 0 none;
+	clip: rect(0px, 0px, 0px, 0px);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+input {
+	padding: 12px;
+	font-size: 14px;
+	line-height: 20px;
+	width: 100%;
+}
+
+.password-field {
+	&__input {
+		display: inline-block;
+		position: relative;
+	}
+	&__toggle-button {
+		position: absolute;
+		right: 0px;
+		height: 100%;
+		cursor: pointer;
+		color: black;
+		background: transparent;
+		border: none;
+		text-decoration: underline;
+		border-left: 1px solid;
+		border-radius: 0;
+		padding: 0 10px;
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+h1 {
+	font-size: 32px;
+	line-height: 1.4;
+	margin-bottom: 20px;
+}
+
+.form {
+	max-width: 400px;
+
+	&__row {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 20px;
+	}
+	&__label {
+		font-size: 16px;
+		line-height: 20px;
+		padding: 5px 0;
+	}
+}
