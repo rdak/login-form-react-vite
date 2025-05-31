@@ -2,16 +2,15 @@ $screen-xs: 320px;
 $screen-sm: 768px;
 $screen-md: 960px;
 $screen-lg: 1280px;
-
 $container-sm: 720px;
 $container-md: 920px;
 $container-lg: 1200px;
 
 :root {
-    --black: oklch(0 0 0);
-    --white: oklch(1 0 0);
-    --main-bg: oklch(0.4198 0.1658 260.15);
-    --main-bg-hover: oklch(0.2336 0.0591 276.64);
-    --second-bg: oklch(0.3211 0 0);
-    --error: oklch(0.4695 0.192651 29.2339);
+    --black: oklch(0% 0 0deg);
+    --white: oklch(100% 0 0deg);
+    --main-bg: oklch(41.98% 0.1658 260.15deg);
+    --main-bg-hover: oklch(23.36% 0.0591 276.64deg);
+    --second-bg: oklch(32.11% 0 0deg);
+    --error: oklch(46.95% 0.1927 29.2339deg);
 }
