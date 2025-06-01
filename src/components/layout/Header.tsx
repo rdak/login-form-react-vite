@@ -26,10 +26,6 @@ function Header() {
          */
         const menuList = [
             {
-                label: "Home",
-                url: "/",
-            },
-            {
                 label: "About",
                 url: "/about",
             },
