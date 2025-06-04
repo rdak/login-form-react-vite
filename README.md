@@ -1,5 +1,10 @@
 # Login Form with Vite + React
 
+## To see
+
+- [Small server with nginx](https://login.chebykin.net/)
+- [Github pages](https://rdak.github.io/login-form-react-vite/)
+
 ## To run, enter in terminal:
 
 -   `npm i`
