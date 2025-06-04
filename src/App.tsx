@@ -7,7 +7,7 @@ import Body from "./components/layout/Body";
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename="/login-form-react-vite">
 			<Header />
 			<Body>
 				<AppRouter />
