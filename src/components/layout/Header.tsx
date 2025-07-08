@@ -68,6 +68,7 @@ function Header() {
                         <button
                             className="header-menu__toggle"
                             onClick={onClick}
+                            aria-label=""
                         >
                             ☰
                         </button>

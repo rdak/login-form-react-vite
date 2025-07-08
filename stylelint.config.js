@@ -1,5 +1,5 @@
 export default {
-    extends: ["stylelint-config-standard-scss"],
+    extends: ["stylelint-config-standard-scss", "stylelint-config-prettier"],
     plugins: ["stylelint-gamut"],
     ignoreFiles: ["**/*.css"],
     rules: {
