@@ -6,15 +6,15 @@ import Footer from "./components/layout/Footer";
 import Body from "./components/layout/Body";
 
 function App() {
-    return (
-        <BrowserRouter>
-            <Header />
-            <Body>
-                <AppRouter />
-            </Body>
-            <Footer />
-        </BrowserRouter>
-    );
+	return (
+		<BrowserRouter>
+			<Header />
+			<Body>
+				<AppRouter />
+			</Body>
+			<Footer />
+		</BrowserRouter>
+	);
 }
 
 export default App;

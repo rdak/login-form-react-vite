@@ -6,60 +6,60 @@
 @use "./form/form";
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background: #ccc;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	background: #ccc;
 }
 
 header,
 footer {
-    padding: 15px;
-    background: var(--main-bg);
+	padding: 15px;
+	background: var(--main-bg);
 }
 
 .container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 15px;
 
-    @media (min-width: variables.$screen-sm) {
-        width: variables.$container-sm;
-    }
+	@media (min-width: variables.$screen-sm) {
+		width: variables.$container-sm;
+	}
 
-    @media (min-width: variables.$screen-md) {
-        width: variables.$container-md;
-    }
+	@media (min-width: variables.$screen-md) {
+		width: variables.$container-md;
+	}
 
-    @media (min-width: variables.$screen-lg) {
-        width: variables.$container-lg;
-    }
+	@media (min-width: variables.$screen-lg) {
+		width: variables.$container-lg;
+	}
 }
 
 a:focus,
 button:focus,
 input:focus {
-    outline: 2px solid var(--focus-outline);
-    outline-offset: 2px;
+	outline: 2px solid var(--focus-outline);
+	outline-offset: 2px;
 }
 
 .sr-only {
-    border: 0 none;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+	border: 0 none;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 
 h1 {
-    font-size: 32px;
-    line-height: 1.4;
-    margin-bottom: 20px;
+	font-size: 32px;
+	line-height: 1.4;
+	margin-bottom: 20px;
 }
