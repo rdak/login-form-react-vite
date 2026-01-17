@@ -6,10 +6,10 @@ describe("Body", () => {
 		render(
 			<Body>
 				<h1>Test Content</h1>
-			</Body>
+			</Body>,
 		);
 		expect(
-			screen.getByRole("heading", { name: "Test Content" })
+			screen.getByRole("heading", { name: "Test Content" }),
 		).toBeInTheDocument();
 	});
 });

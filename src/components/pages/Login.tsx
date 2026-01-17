@@ -63,7 +63,7 @@ function Login() {
 							setTimeout(() => {
 								localStorage.setItem(
 									"token",
-									"Bearer " + TOKEN
+									"Bearer " + TOKEN,
 								);
 								navigate("/user");
 							}, 500);
@@ -79,7 +79,7 @@ function Login() {
 					});
 			}
 		},
-		[navigate]
+		[navigate],
 	);
 
 	const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {

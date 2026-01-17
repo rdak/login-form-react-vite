@@ -12,7 +12,7 @@ describe("HeaderMenuLink", () => {
 					url="/home"
 					onClick={handleClick}
 				/>
-			</MemoryRouter>
+			</MemoryRouter>,
 		);
 		const link = screen.getByRole("link", { name: "Home" });
 		expect(link).toBeInTheDocument();

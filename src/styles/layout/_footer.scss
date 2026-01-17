@@ -1,12 +1,12 @@
 .footer {
-    &__logo a {
-        text-decoration: none;
-        color: var(--white);
-        font-size: 1.5em;
-        font-weight: bold;
+	&__logo a {
+		text-decoration: none;
+		color: var(--white);
+		font-size: 1.5em;
+		font-weight: bold;
 
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }

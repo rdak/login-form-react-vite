@@ -7,15 +7,15 @@ describe("NotFound page", () => {
 		render(
 			<BrowserRouter>
 				<NotFound />
-			</BrowserRouter>
+			</BrowserRouter>,
 		);
 		expect(
 			screen.getByRole("heading", {
 				name: "Happy to see you, but this is 404 page",
-			})
+			}),
 		).toBeInTheDocument();
 		expect(
-			screen.getByRole("link", { name: "the home page" })
+			screen.getByRole("link", { name: "the home page" }),
 		).toBeInTheDocument();
 	});
 });

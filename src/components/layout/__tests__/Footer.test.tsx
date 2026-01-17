@@ -7,11 +7,11 @@ describe("Footer", () => {
 		render(
 			<BrowserRouter>
 				<Footer />
-			</BrowserRouter>
+			</BrowserRouter>,
 		);
 		// Adjust the text below to match your footer content
 		expect(
-			screen.getByRole("link", { name: "Logo footer" })
+			screen.getByRole("link", { name: "Logo footer" }),
 		).toBeInTheDocument();
 	});
 });

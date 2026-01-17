@@ -9,15 +9,15 @@ describe("PasswordInput", () => {
 				label="Password"
 				error=""
 				onChange={() => {}}
-			/>
+			/>,
 		);
 		expect(screen.getByLabelText("Password")).toBeInTheDocument();
 		expect(screen.getByLabelText("Password")).toHaveAttribute(
 			"type",
-			"password"
+			"password",
 		);
 		expect(
-			screen.getByRole("button", { name: "Password hidden" })
+			screen.getByRole("button", { name: "Password hidden" }),
 		).toBeInTheDocument();
 	});
 
@@ -28,12 +28,12 @@ describe("PasswordInput", () => {
 				label="Password"
 				error="Password required"
 				onChange={() => {}}
-			/>
+			/>,
 		);
 		expect(screen.getByText("Password required")).toBeInTheDocument();
 		expect(screen.getByLabelText("Password")).toHaveAttribute(
 			"aria-invalid",
-			"true"
+			"true",
 		);
 	});
 
@@ -45,7 +45,7 @@ describe("PasswordInput", () => {
 				label="Password"
 				error=""
 				onChange={handleChange}
-			/>
+			/>,
 		);
 		fireEvent.change(screen.getByLabelText("Password"), {
 			target: { value: "secret" },

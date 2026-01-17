@@ -1,83 +1,83 @@
 .form {
-    max-width: 400px;
+	max-width: 400px;
 
-    &__row {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 20px;
-    }
+	&__row {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 20px;
+	}
 
-    &__label {
-        font-size: 16px;
-        line-height: 20px;
-        padding: 5px 0;
-    }
+	&__label {
+		font-size: 16px;
+		line-height: 20px;
+		padding: 5px 0;
+	}
 
-    &__error {
-        color: var(--error);
-        font-size: 14px;
-        line-height: 20px;
-        margin: 15px 0;
-    }
+	&__error {
+		color: var(--error);
+		font-size: 14px;
+		line-height: 20px;
+		margin: 15px 0;
+	}
 }
 
 .error {
-    color: var(--error);
-    font-size: 14px;
-    line-height: 20px;
-    margin: 5px 0;
+	color: var(--error);
+	font-size: 14px;
+	line-height: 20px;
+	margin: 5px 0;
 }
 
 input {
-    padding: 12px;
-    font-size: 14px;
-    line-height: 20px;
-    width: 100%;
+	padding: 12px;
+	font-size: 14px;
+	line-height: 20px;
+	width: 100%;
 }
 
 .password-field {
-    &__input {
-        display: inline-block;
-        position: relative;
-    }
+	&__input {
+		display: inline-block;
+		position: relative;
+	}
 
-    &__toggle-button {
-        position: absolute;
-        right: 0;
-        height: 100%;
-        cursor: pointer;
-        color: var(--black);
-        background: transparent;
-        border: none;
-        text-decoration: underline;
-        border-left: 1px solid;
-        border-radius: 0;
-        padding: 0 10px;
+	&__toggle-button {
+		position: absolute;
+		right: 0;
+		height: 100%;
+		cursor: pointer;
+		color: var(--black);
+		background: transparent;
+		border: none;
+		text-decoration: underline;
+		border-left: 1px solid;
+		border-radius: 0;
+		padding: 0 10px;
 
-        &:focus,
-        &:hover {
-            text-decoration: none;
-        }
-    }
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .field-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
 }
 
 .submit-button {
-    background: var(--main-bg);
-    color: var(--white);
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 150px;
+	background: var(--main-bg);
+	color: var(--white);
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 150px;
 
-    &:hover {
-        background: var(--main-bg-hover);
-    }
+	&:hover {
+		background: var(--main-bg-hover);
+	}
 }

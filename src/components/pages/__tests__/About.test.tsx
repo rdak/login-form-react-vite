@@ -7,7 +7,7 @@ describe("About page", () => {
 		expect(
 			screen.getByRole("heading", {
 				name: "About page. Actually, it is not.",
-			})
+			}),
 		).toBeInTheDocument();
 		expect(screen.getByRole("link", { name: "here" })).toBeInTheDocument();
 	});

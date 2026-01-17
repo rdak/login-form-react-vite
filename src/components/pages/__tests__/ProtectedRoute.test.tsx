@@ -6,7 +6,7 @@ describe("ProtectedRoute", () => {
 	it("renders chidren", () => {
 		localStorage.setItem(
 			"token",
-			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkhleSBVc2VyIiwiaWF0IjoxNTE2MjM5MDIyfQ.EOEPtPBWAcTE0PvnE6FrKfQmoe3VdCqBXOOObpIMTcs"
+			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkhleSBVc2VyIiwiaWF0IjoxNTE2MjM5MDIyfQ.EOEPtPBWAcTE0PvnE6FrKfQmoe3VdCqBXOOObpIMTcs",
 		);
 
 		render(
@@ -14,12 +14,12 @@ describe("ProtectedRoute", () => {
 				<ProtectedRoute>
 					<h1>some heading</h1>
 				</ProtectedRoute>
-			</BrowserRouter>
+			</BrowserRouter>,
 		);
 		expect(
 			screen.getByRole("heading", {
 				name: "some heading",
-			})
+			}),
 		).toBeInTheDocument();
 	});
 
@@ -30,7 +30,7 @@ describe("ProtectedRoute", () => {
 				<ProtectedRoute>
 					<h1>some heading</h1>
 				</ProtectedRoute>
-			</BrowserRouter>
+			</BrowserRouter>,
 		);
 		expect(screen.queryByRole("heading")).not.toBeInTheDocument();
 	});

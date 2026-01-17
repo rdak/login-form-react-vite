@@ -9,7 +9,7 @@ describe("TextInput", () => {
 				label="Username"
 				error=""
 				onChange={() => {}}
-			/>
+			/>,
 		);
 		expect(screen.getByLabelText("Username")).toBeInTheDocument();
 		expect(screen.getByRole("textbox")).toHaveAttribute("id", "username");
@@ -22,12 +22,12 @@ describe("TextInput", () => {
 				label="Username"
 				error="Username required"
 				onChange={() => {}}
-			/>
+			/>,
 		);
 		expect(screen.getByText("Username required")).toBeInTheDocument();
 		expect(screen.getByRole("textbox")).toHaveAttribute(
 			"aria-invalid",
-			"true"
+			"true",
 		);
 	});
 
@@ -39,7 +39,7 @@ describe("TextInput", () => {
 				label="Username"
 				error=""
 				onChange={handleChange}
-			/>
+			/>,
 		);
 		fireEvent.change(screen.getByRole("textbox"), {
 			target: { value: "abc" },

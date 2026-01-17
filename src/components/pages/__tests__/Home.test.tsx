@@ -7,12 +7,12 @@ describe("Home page", () => {
 		render(
 			<BrowserRouter>
 				<Home />
-			</BrowserRouter>
+			</BrowserRouter>,
 		);
 		expect(
 			screen.getByRole("heading", {
 				name: "Hi there! This is a simple test site and login form with Vite+React.",
-			})
+			}),
 		).toBeInTheDocument();
 		expect(screen.getByRole("link", { name: "Login" })).toBeInTheDocument();
 	});

@@ -7,12 +7,12 @@ describe("Logout page", () => {
 		render(
 			<BrowserRouter>
 				<Logout />
-			</BrowserRouter>
+			</BrowserRouter>,
 		);
 		expect(
 			screen.getByRole("heading", {
 				name: "You are successfully logged out",
-			})
+			}),
 		).toBeInTheDocument();
 	});
 });
