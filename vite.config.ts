@@ -4,10 +4,11 @@ import postcssPresetEnv from "postcss-preset-env";
 import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-	plugins: [svgr(), react()],
-	css: {
-		postcss: {
-			plugins: [postcssPresetEnv],
-		},
-	},
+    plugins: [svgr(), react()],
+    base: '/login-form-react-vite/',
+    css: {
+        postcss: {
+            plugins: [postcssPresetEnv],
+        },
+    },
 });
